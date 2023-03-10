@@ -1,0 +1,1 @@
+rootProject.name = "com.coverlettersai.cover_letters_ai"
