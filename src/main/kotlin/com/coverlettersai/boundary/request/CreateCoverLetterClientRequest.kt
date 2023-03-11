@@ -1,6 +1,6 @@
 package com.coverlettersai.boundary.request
 
-data class CreateCoverLetterRequest(
+data class CreateCoverLetterClientRequest(
     val companyName: String,
     val jobPostDescription: String,
     val linkedinUser: String,

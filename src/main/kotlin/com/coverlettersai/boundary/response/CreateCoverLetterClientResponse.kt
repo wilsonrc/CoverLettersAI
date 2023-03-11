@@ -1,9 +1,9 @@
 package com.coverlettersai.boundary.response
 
 
-data class CreateCoverLetterResponse(
+data class CreateCoverLetterClientResponse(
     val linkedinUser: String,
     val companyName: String,
-    val coverLetters: List<CoverLetterResponse>,
+    val coverLetters: List<CoverLetterClientResponse>,
     val createdAt: String
 )
