@@ -1,7 +1,6 @@
 package com.coverlettersai.plugins
 
 import com.coverlettersai.boundary.request.CreateCoverLetterClientRequest
-import com.coverlettersai.boundary.response.CreateCoverLetterClientResponse
 import com.coverlettersai.gateway.source.remote.OpenAIRemoteDataSource
 import com.coverlettersai.gateway.source.repositories.OpenAIRepository
 import com.coverlettersai.usecases.CoverLetterGenerationUseCase
