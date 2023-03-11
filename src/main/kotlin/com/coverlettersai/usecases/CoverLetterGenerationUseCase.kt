@@ -16,7 +16,7 @@ class CoverLetterGenerationUseCase(private val openAIRepository: OpenAIDataSourc
         val sizeText = when (companySetting.size.lowercase()) {
             "short" -> "Generate a Short and concise cover letter"
             "medium" -> "Generate a medium size cover letter"
-            "long" -> "Generate a long cover letter"
+            "large" -> "Generate a long cover letter"
             else -> "Generate a medium size and concise cover Letter"
         }
 
