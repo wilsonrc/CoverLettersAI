@@ -1,7 +1,10 @@
 package com.coverlettersai.plugins
 
 import com.coverlettersai.boundary.request.CreateCoverLetterClientRequest
+import com.coverlettersai.boundary.response.OptionClientResponse
+import com.coverlettersai.boundary.response.OptionsListClientResponse
 import com.coverlettersai.gateway.source.remote.OpenAIRemoteDataSource
+import com.coverlettersai.gateway.source.repositories.CoverLetterOptionsRepository
 import com.coverlettersai.gateway.source.repositories.OpenAIRepository
 import com.coverlettersai.usecases.CoverLetterGenerationUseCase
 import io.ktor.client.*
@@ -15,6 +18,7 @@ import io.ktor.server.application.*
 import io.ktor.server.request.*
 import kotlin.text.Charsets
 import io.ktor.client.plugins.contentnegotiation.*
+
 fun Application.configureRouting() {
     routing {
         val clientHttp = HttpClient(CIO) {
@@ -36,7 +40,7 @@ fun Application.configureRouting() {
         val openAIRepository = OpenAIRepository(OpenAIRemoteDataSource(clientHttp))
 
 
-        route("/coverLetters"){
+        route("/cover-letters") {
             post() {
                 val request = call.receive<CreateCoverLetterClientRequest>()
 
@@ -47,5 +51,12 @@ fun Application.configureRouting() {
             }
         }
 
+        route("/cover-letters/options") {
+            get() {
+                val response = CoverLetterOptionsRepository().getOptions()
+
+                call.respond(response)
+            }
+        }
     }
 }

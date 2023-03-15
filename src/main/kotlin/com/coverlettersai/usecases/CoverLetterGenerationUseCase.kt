@@ -10,8 +10,48 @@ class CoverLetterGenerationUseCase(private val openAIRepository: OpenAIDataSourc
     suspend fun generateCoverLetter(createCoverLetterRequest: CreateCoverLetterClientRequest): ChatGPTResponse {
         val companySetting = createCoverLetterRequest.coverLetterSetting
         val linkedinUserSummary = LinkedinUserSummaryUseCase().getLinkedinUserSummary()
-        val jobDescription =
-            "\'\"We\\\'re looking to hire a Principal Software Developer specialized in Android to join our team. You\\\'ll work with our incredible clients in one of two ways:\\\\n\'+\n\'• Team Augmentation: You will integrate yourself directly into our client\\\'s team and work alongside their existing designers and engineers on a daily basis.\\\\n\'+\n\'• Design & Build: You will work on a FullStack Labs product team to build and deliver a product to our clients.\\\\n\'+\n\'What you\\\'ll get to do:\\\\n\'+\n\'• Iteratively design, implement and deliver software features for our new and existing products.\\\\n\'+\n\'• Develop secure, testable, efficient, and well-documented code.\\\\n\'+\n\'• Build and maintain new tooling (test coverage, build tasks, build automation).\\\\n\'+\n\'• Contribute to the development and maintenance of our Android SDK and mobile app products.\\\\n\'+\n\'• Refactor existing code to higher quality standards using modern best practices.\\\\n\'+\n\'• Collaborate with other developers by participating in pair programming and code reviews.\\\\n\'+\n\'• Work cross-functionally to help drive the company’s technological development.\\\\n\'+\n\'• Collaborate with other team members on designing and building new features and products.\\\\n\'+\n\'• Lead a team working on Android native applications by helping them identify solutions to business needs.\\\\n\'+\n\'What we are looking for:\\\\n\'+\n\'• 8+ years of professional software development experience.\\\\n\'+\n\'• Advanced English is required.\\\\n\'+\n\'• A four-year college degree is required.\\\\n\'+\n\'• Meaningful experience working with Android, Android Studio, Android SDK, and Java (Kotlin).\\\\n\'+\n\'• Able to work effectively in a distributed team environment (remote).\\\\n\'+\n\'• Experience publishing and maintaining apps in the Android app store.\\\\n\'+\n\'• Strong understanding of application architecture, design patterns, and best practices.\\\\n\'+\n\'• Self-directed and comfortable supporting the needs of multiple teams, systems, and products.\\\\n\'+\n\'• Passion for testing and test-driven development.\\\\n\'+\n\'• Commitment to continually improving and expanding your technical skills.\\\\n\'+\n\'\"\'"
+        val jobDescription = "At INGENIOUS.BUILD, we’ve cracked the code and built a world-class platform for companies of all sizes within the real estate and construction industries across the globe, enabling them to simply and effortlessly manage all aspects of their projects--from inception to completion, and both internally and in conjunction with the other project participants.\n" +
+                "\n" +
+                "Project managers drool. Data geeks giggle. Execs actually sleep well. And the rest simply stare slack-jawed at their screens unable to comprehend how in the world we pulled this off...\n" +
+                "\n" +
+                "Think about what you could do here… At INGENIOUS.BUILD, you’ll be participating in one of the most exciting and unparalleled journeys of your career--a journey to pioneer the first cloud application to manage the entire lifecycle of a real estate construction project. In short, you’ll be building what some have claimed is the holy grail of construction project management.\n" +
+                "\n" +
+                "It’s big. Bold. Audacious, even. But that's how we roll...\n" +
+                "\n" +
+                "And if you’ve got what it takes, you’ll be directly involved in its development. The rest, as they say, will be history...\n" +
+                "\n" +
+                "So... think you've got the right stuff?\n" +
+                "\n" +
+                "We are looking for a talented Android Engineer to join our remote team. If you have top-notch programming skills and a deep-rooted passion for developing applications or improving existing ones--plus you like to solve problems--we would like to meet you. As an Android Engineer you will work closely within a small team in SCRUM (but in conjunction with other dev teams) to ensure system consistency and to improve the user experience.\n" +
+                "\n" +
+                "What is vital, however, is that you have, and demonstrate, a burning desire to constantly learn new things and to be proactive in your development efforts.\n" +
+                "\n" +
+                "Responsibilities\n" +
+                "\n" +
+                "Collaborate with your team to plan, build, and deliver world-class software.\n" +
+                "Refactor, optimize, and improve the existing codebase.\n" +
+                "Use your voice to help shape your own personal growth, your team, the department, and the company.\n" +
+                "Required Qualifications\n" +
+                "\n" +
+                "Kotlin.\n" +
+                "Jetpack Compose.\n" +
+                "Experience building complex modular Android App Architecture.\n" +
+                "Retrofit.\n" +
+                "Coroutines.\n" +
+                "Experience launching apps in Play Store.\n" +
+                "REST.\n" +
+                "Teamwork skills with a problem-solving attitude.\n" +
+                "Communicative English (reading / writing). Minimum level B2.\n" +
+                "Analytical skills.\n" +
+                "Preferred Qualifications\n" +
+                "\n" +
+                "Experience with building large scale SaaS apps like CRM, CMS, and ERP.\n" +
+                "Unit tests.\n" +
+                "Web sockets.\n" +
+                "SCRUM.\n" +
+                "Jira.\n" +
+                "Figma.\n" +
+                "MVVM."
 
         val sizeText = when (companySetting.size.lowercase()) {
             "short" -> "Generate a Short and concise cover letter"
@@ -21,7 +61,6 @@ class CoverLetterGenerationUseCase(private val openAIRepository: OpenAIDataSourc
         }
 
         val formalityText = when (companySetting.formality.lowercase()) {
-            "very_formal" -> "Use a very formal wording style for the cover letter"
             "formal" -> "Use a formal wording style for the cover letter"
             "neutral" -> "Use a neutral wording style for the cover letter"
             "informal" -> "Use an informal wording style for the cover letter"
